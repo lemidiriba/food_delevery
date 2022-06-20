@@ -1,3 +1,4 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/home/food_page_body.dart';
 import 'package:food_delivery/utils/colors.dart';
@@ -50,7 +51,8 @@ class MainFoodPageState extends State<MainFoodPage> {
               ],
             ),
           ),
-         FoodPageBody(),
+          FoodPageBody(),
+         
         ],
       ),
     );
