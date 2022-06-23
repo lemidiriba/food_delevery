@@ -1,6 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/utils/colors.dart';
+import 'package:food_delivery/utils/dimension.dart';
 import 'package:food_delivery/widgets/icon_and_text.dart';
 import 'package:food_delivery/widgets/larg_text.dart';
 import 'package:food_delivery/widgets/small_text.dart';
@@ -40,7 +41,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       children: [
         Container(
           margin: const EdgeInsets.only(right: 20, left: 20),
-          height: 280,
+          height: Dimension.pageViewContainer,
           child: PageView.builder(
             controller: _pageController,
             itemCount: 5,
@@ -52,13 +53,121 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         DotsIndicator(
           dotsCount: 5,
           position: _currentPageValue,
-          decorator:  DotsDecorator(
-            size: const Size.square(9.0),
-            activeSize: const Size(18, 9),
-            activeColor: AppColors.mainColor,
-            activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))
+          decorator: DotsDecorator(
+              size: const Size.square(9.0),
+              activeSize: const Size(18, 9),
+              activeColor: AppColors.mainColor,
+              activeShape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5))),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Container(
+          margin: const EdgeInsets.only(left: 20),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              LargText(
+                text: "Popular",
+                color: Colors.black,
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              LargText(
+                text: ".",
+                color: Colors.black26,
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              SmallText(
+                text: "food pairing",
+                color: Colors.black54,
+              ),
+            ],
           ),
-        )
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Container(
+          height: 800,
+          margin: const EdgeInsets.only(left: 20, right: 20),
+          child: ListView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            scrollDirection: Axis.vertical,
+            itemCount: 10,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: const EdgeInsets.only(bottom: 10),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 120,
+                      height: 120,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          image: const DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage('assets/image/food0.png'))),
+                    ),
+                   
+                    Expanded(
+                      child: Container(
+                        height: 100,
+                        padding: const EdgeInsets.only(left: 5),
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(topRight: Radius.circular(20),bottomRight: Radius.circular(20))
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            LargText(
+                              text: "Nutritious frout Meal",
+                              fontSize: 18,
+                              color: AppColors.mainBlackColor,
+                            ),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            SmallText(
+                              text: "with Chinise characterstics",
+                              fontSize: 12,
+                              color: Colors.black54,
+                            ),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  IconAndText(
+                                      icon: Icons.circle,
+                                      text: "Normal",
+                                      iconColor: AppColors.iconColor1),
+                                  IconAndText(
+                                      icon: Icons.location_on,
+                                      text: "1.7 km",
+                                      iconColor: AppColors.mainColor),
+                                  IconAndText(
+                                      icon: Icons.access_time_rounded,
+                                      text: "Normal",
+                                      iconColor: AppColors.iconColor2)
+                                ])
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              );
+            },
+          ),
+        ),
       ],
     );
   }
@@ -95,7 +204,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           Container(
             margin: const EdgeInsets.only(left: 5, right: 5),
             width: double.maxFinite,
-            height: 220,
+            height: Dimension.pageViewImageContainer,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
               image: const DecorationImage(
@@ -109,7 +218,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             child: Container(
               margin: const EdgeInsets.only(left: 30, right: 30, bottom: 10),
               width: double.maxFinite,
-              height: 120,
+              height: Dimension.pageViewTextContainer,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   color: Colors.white,
