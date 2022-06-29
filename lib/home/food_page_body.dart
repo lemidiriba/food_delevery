@@ -2,6 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/utils/colors.dart';
 import 'package:food_delivery/utils/dimension.dart';
+import 'package:food_delivery/widgets/app_column.dart';
 import 'package:food_delivery/widgets/icon_and_text.dart';
 import 'package:food_delivery/widgets/larg_text.dart';
 import 'package:food_delivery/widgets/small_text.dart';
@@ -232,66 +233,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   ]),
               child: Container(
                 margin: const EdgeInsets.only(left: 20, right: 20, top: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SmallText(
-                      text: "Chinese Side",
-                      fontSize: 18,
-                      color: AppColors.mainBlackColor,
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      children: [
-                        Wrap(
-                            children: List.generate(5, (index) {
-                          return Icon(
-                            Icons.star,
-                            size: 18,
-                            color: AppColors.mainColor,
-                          );
-                        })),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        SmallText(
-                          text: "4.5",
-                          fontSize: 12,
-                          color: Colors.black54,
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        SmallText(
-                          text: "1287 Comments",
-                          fontSize: 12,
-                          color: Colors.black54,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 25,
-                    ),
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          IconAndText(
-                              icon: Icons.circle,
-                              text: "Normal",
-                              iconColor: AppColors.iconColor1),
-                          IconAndText(
-                              icon: Icons.location_on,
-                              text: "1.7 km",
-                              iconColor: AppColors.mainColor),
-                          IconAndText(
-                              icon: Icons.access_time_rounded,
-                              text: "Normal",
-                              iconColor: AppColors.iconColor2)
-                        ])
-                  ],
-                ),
+                child: AppColumn(text: "Chinese Side",size: 22,)
               ),
             ),
           ),

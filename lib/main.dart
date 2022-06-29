@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/home/main_food_page.dart';
+import 'package:food_delivery/page/detail_food_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: MainFoodPage(),
+      home: DetailFoodPage(),
     );
   }
 }
