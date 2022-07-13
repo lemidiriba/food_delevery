@@ -18,10 +18,10 @@ class LargText extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-        fontSize: fontSize,
-        color: color,
-        fontWeight: FontWeight.bold
-      ),
+          fontSize: fontSize,
+          color: color,
+          fontWeight: FontWeight.bold,
+          wordSpacing: 1.5),
     );
   }
 }

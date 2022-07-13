@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/home/main_food_page.dart';
 import 'package:food_delivery/page/detail_food_page.dart';
-
-void main() {
+import 'package:food_delivery/page/recomanded_food_detail_page.dart';
+import 'package:food_delivery/helper/dependency.dart' as dep;
+import 'package:food_delivery/utils/app_consttants.dart';
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dep.init();
   runApp(const MyApp());
 }
 
@@ -13,13 +17,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: AppConstants.appName,
       theme: ThemeData(
         
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: DetailFoodPage(),
+      home: RecomandedFoodDetailPage(),
     );
   }
 }
